@@ -1,0 +1,27 @@
+Start testing: May 22 20:57 東京 (標準時)
+----------------------------------------------------------
+1/1 Testing: tests
+1/1 Test: tests
+Command: "C:/Users/katahiromz/Desktop/ArgvToCommandLine/tests.exe"
+Directory: C:/Users/katahiromz/Desktop/ArgvToCommandLine
+"tests" start time: May 22 20:57 東京 (標準時)
+Output:
+----------------------------------------------------------
+OK: prog
+OK: prog "hello world"
+OK: prog ""
+OK: prog C:\path\
+OK: prog "\"quoted\""
+OK: prog "a\\\"b"
+OK: prog a\\b
+OK: prog " " "	" "
+"
+<end of output>
+Test time =   0.13 sec
+----------------------------------------------------------
+Test Passed.
+"tests" end time: May 22 20:57 東京 (標準時)
+"tests" time elapsed: 00:00:00
+----------------------------------------------------------
+
+End testing: May 22 20:57 東京 (標準時)
