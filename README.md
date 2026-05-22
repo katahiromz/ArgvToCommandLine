@@ -1,4 +1,6 @@
-# ArgvToCommandLine --- Inverse of CommandLineToArgvW
+# ArgvToCommandLine
+
+It's the inverse of CommandLineToArgvW function.
 
 ```cxx
 std::string  ArgvToCommandLineA(int argc, char    **argv);
