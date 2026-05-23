@@ -11,11 +11,10 @@ std::string ArgvToCommandLineA(int argc, char **argv)
     for (int iarg = 0; iarg < argc; ++iarg) {
         std::string arg = argv[iarg];
 
-        if (iarg != 0) cmdline += ' ';
-
         bool needQuote = arg.empty() || arg.find_first_of(" \t\n\v\"") != std::string::npos;
 
-        if (needQuote) cmdline += '"';
+        if (needQuote)
+            cmdline += '"';
 
         for (size_t j = 0; j < arg.size(); ) {
             size_t bs = 0;
@@ -28,6 +27,7 @@ std::string ArgvToCommandLineA(int argc, char **argv)
                 cmdline.append(bs * (needQuote ? 2 : 1), '\\');
                 break;
             }
+
             if (arg[j] == '"') {
                 cmdline.append(bs * 2 + 1, '\\');
                 cmdline += '"';
@@ -38,7 +38,11 @@ std::string ArgvToCommandLineA(int argc, char **argv)
             }
         }
 
-        if (needQuote) cmdline += '"';
+        if (needQuote)
+            cmdline += '"';
+
+        if (iarg + 1 < argc)
+            cmdline += ' ';
     }
 
     return cmdline;
@@ -51,11 +55,10 @@ std::wstring ArgvToCommandLineW(int argc, wchar_t **argv)
     for (int iarg = 0; iarg < argc; ++iarg) {
         std::wstring arg = argv[iarg];
 
-        if (iarg != 0) cmdline += L' ';
-
         bool needQuote = arg.empty() || arg.find_first_of(L" \t\n\v\"") != std::wstring::npos;
 
-        if (needQuote) cmdline += L'"';
+        if (needQuote)
+            cmdline += L'"';
 
         for (size_t j = 0; j < arg.size(); ) {
             size_t bs = 0;
@@ -68,6 +71,7 @@ std::wstring ArgvToCommandLineW(int argc, wchar_t **argv)
                 cmdline.append(bs * (needQuote ? 2 : 1), L'\\');
                 break;
             }
+
             if (arg[j] == L'"') {
                 cmdline.append(bs * 2 + 1, L'\\');
                 cmdline += L'"';
@@ -78,7 +82,11 @@ std::wstring ArgvToCommandLineW(int argc, wchar_t **argv)
             }
         }
 
-        if (needQuote) cmdline += L'"';
+        if (needQuote)
+            cmdline += L'"';
+
+        if (iarg + 1 < argc)
+            cmdline += L' ';
     }
 
     return cmdline;
@@ -91,11 +99,10 @@ std::string  ArgvToCommandLineA(const std::vector<std::string>& args)
     for (size_t iarg = 0; iarg < args.size(); ++iarg) {
         std::string arg = args[iarg];
 
-        if (iarg != 0) cmdline += ' ';
-
         bool needQuote = arg.empty() || arg.find_first_of(" \t\n\v\"") != std::string::npos;
 
-        if (needQuote) cmdline += '"';
+        if (needQuote)
+            cmdline += '"';
 
         for (size_t j = 0; j < arg.size(); ) {
             size_t bs = 0;
@@ -108,6 +115,7 @@ std::string  ArgvToCommandLineA(const std::vector<std::string>& args)
                 cmdline.append(bs * (needQuote ? 2 : 1), '\\');
                 break;
             }
+
             if (arg[j] == '"') {
                 cmdline.append(bs * 2 + 1, '\\');
                 cmdline += '"';
@@ -118,7 +126,11 @@ std::string  ArgvToCommandLineA(const std::vector<std::string>& args)
             }
         }
 
-        if (needQuote) cmdline += '"';
+        if (needQuote)
+            cmdline += '"';
+
+        if (iarg + 1 < args.size())
+            cmdline += ' ';
     }
 
     return cmdline;
@@ -131,11 +143,10 @@ std::wstring ArgvToCommandLineW(const std::vector<std::wstring>& args)
     for (size_t iarg = 0; iarg < args.size(); ++iarg) {
         std::wstring arg = args[iarg];
 
-        if (iarg != 0) cmdline += L' ';
-
         bool needQuote = arg.empty() || arg.find_first_of(L" \t\n\v\"") != std::wstring::npos;
 
-        if (needQuote) cmdline += L'"';
+        if (needQuote)
+            cmdline += L'"';
 
         for (size_t j = 0; j < arg.size(); ) {
             size_t bs = 0;
@@ -148,6 +159,7 @@ std::wstring ArgvToCommandLineW(const std::vector<std::wstring>& args)
                 cmdline.append(bs * (needQuote ? 2 : 1), L'\\');
                 break;
             }
+
             if (arg[j] == L'"') {
                 cmdline.append(bs * 2 + 1, L'\\');
                 cmdline += L'"';
@@ -158,7 +170,11 @@ std::wstring ArgvToCommandLineW(const std::vector<std::wstring>& args)
             }
         }
 
-        if (needQuote) cmdline += L'"';
+        if (needQuote)
+            cmdline += L'"';
+
+        if (iarg + 1 < args.size())
+            cmdline += L' ';
     }
 
     return cmdline;
